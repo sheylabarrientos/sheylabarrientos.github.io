@@ -1,135 +1,180 @@
+/* soft reset do css */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../img/fundo.jpg');
+  background-size: auto 100vh; 
+  font-family: 'Source Code Pro', monospace;
+  height: 100vh;
+  font-size: 12px;
+}
+
+/* se a tela tiver pelo menos 400px vai carregar estes estilos */
+@media (min-width: 400px) {
   body {
-    background-image: url('../img/fundo.jpg');
-    background-size: auto 100vh;
-    height: 100vh;
-    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
   }
-  
-  @media (min-width: 400px) {
-    body {
-      font-size: 18px;
-    }
+}
+
+/* breakpoint */
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
   }
-  
-  @media (min-width: 600px) {
-    body {
-      font-size: 22px;
-    }
+}
+
+/* breakpoint */
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
   }
-  
-  header {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+}
+
+header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  background-color: white;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu li {
+ list-style: none; 
+}
+
+.menu a {
+  display: block;
+  padding: 10px 20px;
+  transition: background-color 1s, color 1s;
+}
+
+.menu a:active,
+.menu a:hover {
+  background-color: teal;
+  color: white;
+}
+
+a {
+  color: teal;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.titulo {
+  transform: scale(0.2) translateY(50vh);
+  opacity: 0;
+  animation: 1s ease 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+  from {
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0;
   }
-  
-  .menu {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    width: 100vw;
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
   }
-  
-  .menu ul {
-    display: flex;
-    justify-content: space-around;
+}
+
+.site-subtitle, 
+.site-title {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.site-title {
+  font-size: 4em;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.site-subtitle {
+ font-style: italic;
+ font-family: 'Press Start 2P', cursive;
+ line-height: 1.8em;
+}
+
+.contato,
+.portfolio {
+  padding: 2em;
+  min-height: 100vh;
+}
+
+.contato h2,
+.portfolio h2 {
+  font-family: 'Patrick Hand', cursive;
+  color: whitesmoke;
+  margin-bottom: 1.5em;
+  font-size: 2.2em;
+}
+
+.portfolio .grid {
+  display: grid;
+  gap: 2em;
+}
+
+@media (min-width: 560px) {
+  .portfolio .grid {
+    grid-template-columns: 240px 240px;
   }
-  
-  .menu li {
-    list-style: none;
-  }
-  
-  .menu a {
-    color: teal;
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-  }
-  
-  .site-title {
-    color: whitesmoke;
-    font-family: 'Dancing Script', cursive;
-    font-size: 4em;
-    line-height: 1em;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .site-subtitle {
-    color: silver;
-    font-style: italic;
-    font-weight: lighter;
-    text-align: center;
-    font-size: 2em;
-  }
-  
-  .contato,
-  .portfolio {
-    padding: 1em;
-  }
-  
-  .contato h2,
-  .portfolio h2 {
-    color: white;
-    font-family: 'Carter One', cursive;
-    font-size: 2.2em;
-    margin-bottom: .5em;
-  }
-  
-   .grid {
-    color: silver;
-    display: grid;
-    gap: 1em;
+}
+
+@media (min-width: 880px) {
+  .portfolio .grid {
+    grid-template-columns: repeat(3, 260px);
     align-content: center;
     justify-content: center;
-    text-align: center;
+    height: calc(100vh - 8em - 48px);
   }
-  
-  @media (min-width: 400px) {
-    .contato,
-    .portfolio {
-      padding: 3em 2em 2em;
-      height: 100vh;
-    }
-  
-     .grid {
-      grid-template-columns: 200px 200px;
-      height: calc(100vh - 4.5em - 75px);
-    }
-  }
-  
-  @media (min-width: 940px) {
-    .contato,
-    .portfolio {
-      padding: 2em;
-    }
-  
-     .grid {
-      grid-template-columns: repeat(4, 200px);
-      height: calc(100vh - 8em - 75px);
-    }
-  }
-  
-  .portfolio figcaption {
-    font-weight: bold;
-  }
-  
-  .img-portfolio {
-    border-radius: 10px;
-    height: 180px;
-    object-fit: cover;
-    width: 180px;
-  }
-  
-  .icons a {
-    color: white;
-    font-size: 6em;
-  }
+}
+
+.portfolio figure {
+  text-align: center;
+}
+
+.img-portfolio {
+  height: 180px;
+  width: 240px;
+  object-fit: cover;
+  object-position: left bottom;
+  transition: transform 500ms;
+}
+
+.img-portfolio:hover {
+  transform: scale(1.2) rotate(-2deg);
+}
+
+.contato .icons {
+  text-align: center;
+}
+
+.contato a {
+  color: whitesmoke;
+  font-size: 4em;
+  transition: text-shadow 1s;
+}
+
+.contato a:active,
+.contato a:hover  {
+  text-decoration: none;
+  text-shadow: 0px 0px 10px rgba(255,255,255,.5);
+}
